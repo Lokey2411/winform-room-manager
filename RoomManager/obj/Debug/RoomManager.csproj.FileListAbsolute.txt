@@ -1,0 +1,11 @@
+D:\Code\C#\winform-room-manager\RoomManager\bin\Debug\RoomManager.exe.config
+D:\Code\C#\winform-room-manager\RoomManager\bin\Debug\RoomManager.exe
+D:\Code\C#\winform-room-manager\RoomManager\bin\Debug\RoomManager.pdb
+D:\Code\C#\winform-room-manager\RoomManager\obj\Debug\RoomManager.csproj.AssemblyReference.cache
+D:\Code\C#\winform-room-manager\RoomManager\obj\Debug\RoomManager.DangNhap_DangKy.resources
+D:\Code\C#\winform-room-manager\RoomManager\obj\Debug\RoomManager.Properties.Resources.resources
+D:\Code\C#\winform-room-manager\RoomManager\obj\Debug\RoomManager.csproj.GenerateResource.cache
+D:\Code\C#\winform-room-manager\RoomManager\obj\Debug\RoomManager.csproj.CoreCompileInputs.cache
+D:\Code\C#\winform-room-manager\RoomManager\obj\Debug\RoomManager.exe
+D:\Code\C#\winform-room-manager\RoomManager\obj\Debug\RoomManager.pdb
+D:\Code\C#\winform-room-manager\RoomManager\obj\Debug\RoomManager.QuanlyPhong_Khach.resources
