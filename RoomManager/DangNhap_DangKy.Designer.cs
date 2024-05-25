@@ -100,11 +100,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(189, 337);
+            this.label4.Location = new System.Drawing.Point(173, 337);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(281, 27);
+            this.label4.Size = new System.Drawing.Size(290, 27);
             this.label4.TabIndex = 4;
-            this.label4.Text = "Bạn chưa có tài khoản, hãy ";
+            this.label4.Text = "Bạn chưa có tài khoản? Hãy ";
             // 
             // toSignUp
             // 
@@ -114,7 +114,7 @@
             this.toSignUp.AutoSize = true;
             this.toSignUp.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toSignUp.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.toSignUp.Location = new System.Drawing.Point(457, 337);
+            this.toSignUp.Location = new System.Drawing.Point(456, 337);
             this.toSignUp.Name = "toSignUp";
             this.toSignUp.Size = new System.Drawing.Size(93, 27);
             this.toSignUp.TabIndex = 5;
@@ -219,11 +219,11 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(190, 374);
+            this.label10.Location = new System.Drawing.Point(183, 374);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(211, 27);
+            this.label10.Size = new System.Drawing.Size(220, 27);
             this.label10.TabIndex = 8;
-            this.label10.Text = "Đẵ có tài khoản, hãy";
+            this.label10.Text = "Đã có tài khoản? Hãy";
             // 
             // signUpBtn
             // 
