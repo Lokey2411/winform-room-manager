@@ -46,28 +46,40 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin.Designer.cs">
+      <DependentUpon>Admin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controller\AuthManager.cs" />
+    <Compile Include="Controller\CustomerController.cs" />
+    <Compile Include="Controller\RoomController.cs" />
     <Compile Include="DangNhap_DangKy.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DangNhap_DangKy.Designer.cs">
       <DependentUpon>DangNhap_DangKy.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="Dat-TraPhong.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Dat-TraPhong.Designer.cs">
+      <DependentUpon>Dat-TraPhong.cs</DependentUpon>
     </Compile>
+    <Compile Include="DB.cs" />
+    <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Room.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QuanlyPhong_Khach.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="QuanlyPhong_Khach.Designer.cs">
-      <DependentUpon>QuanlyPhong_Khach.cs</DependentUpon>
-    </Compile>
+    <EmbeddedResource Include="Admin.resx">
+      <DependentUpon>Admin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DangNhap_DangKy.resx">
       <DependentUpon>DangNhap_DangKy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dat-TraPhong.resx">
+      <DependentUpon>Dat-TraPhong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -78,9 +90,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="QuanlyPhong_Khach.resx">
-      <DependentUpon>QuanlyPhong_Khach.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

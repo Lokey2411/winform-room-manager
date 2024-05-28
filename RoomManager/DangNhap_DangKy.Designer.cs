@@ -32,19 +32,19 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.toSignUp = new System.Windows.Forms.Label();
+            this.usernameTB = new System.Windows.Forms.TextBox();
+            this.passwordTB = new System.Windows.Forms.TextBox();
+            this.signInButton = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.signUpBtn = new System.Windows.Forms.Button();
+            this.reEnterPasswordTB = new System.Windows.Forms.TextBox();
+            this.passwordSignUpTB = new System.Windows.Forms.TextBox();
+            this.usernameSignUpTB = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -106,49 +106,52 @@
             this.label4.TabIndex = 4;
             this.label4.Text = "Bạn chưa có tài khoản, hãy ";
             // 
-            // label5
+            // toSignUp
             // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.toSignUp.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label5.Location = new System.Drawing.Point(457, 337);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(93, 27);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "Đăng ký";
+            this.toSignUp.AutoSize = true;
+            this.toSignUp.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toSignUp.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.toSignUp.Location = new System.Drawing.Point(457, 337);
+            this.toSignUp.Name = "toSignUp";
+            this.toSignUp.Size = new System.Drawing.Size(93, 27);
+            this.toSignUp.TabIndex = 5;
+            this.toSignUp.Text = "Đăng ký";
+            this.toSignUp.Click += new System.EventHandler(this.toSignUp_Click);
             // 
-            // textBox1
+            // usernameTB
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.usernameTB.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBox1.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(237, 145);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(290, 39);
-            this.textBox1.TabIndex = 6;
+            this.usernameTB.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usernameTB.Location = new System.Drawing.Point(237, 145);
+            this.usernameTB.Name = "usernameTB";
+            this.usernameTB.Size = new System.Drawing.Size(290, 39);
+            this.usernameTB.TabIndex = 6;
             // 
-            // textBox2
+            // passwordTB
             // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.passwordTB.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBox2.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(237, 204);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(290, 39);
-            this.textBox2.TabIndex = 7;
+            this.passwordTB.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.passwordTB.Location = new System.Drawing.Point(237, 204);
+            this.passwordTB.Name = "passwordTB";
+            this.passwordTB.PasswordChar = '*';
+            this.passwordTB.Size = new System.Drawing.Size(290, 39);
+            this.passwordTB.TabIndex = 7;
             // 
-            // button1
+            // signInButton
             // 
-            this.button1.Font = new System.Drawing.Font("Times New Roman", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(573, 142);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(173, 101);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Đăng nhập";
-            this.button1.UseVisualStyleBackColor = true;
+            this.signInButton.Font = new System.Drawing.Font("Times New Roman", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.signInButton.Location = new System.Drawing.Point(573, 142);
+            this.signInButton.Name = "signInButton";
+            this.signInButton.Size = new System.Drawing.Size(173, 101);
+            this.signInButton.TabIndex = 8;
+            this.signInButton.Text = "Đăng nhập";
+            this.signInButton.UseVisualStyleBackColor = true;
+            this.signInButton.Click += new System.EventHandler(this.signInButton_Click);
             // 
             // tabControl1
             // 
@@ -165,14 +168,14 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.label5);
+            this.tabPage1.Controls.Add(this.toSignUp);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.label4);
             this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Controls.Add(this.button1);
+            this.tabPage1.Controls.Add(this.signInButton);
             this.tabPage1.Controls.Add(this.label3);
-            this.tabPage1.Controls.Add(this.textBox1);
-            this.tabPage1.Controls.Add(this.textBox2);
+            this.tabPage1.Controls.Add(this.usernameTB);
+            this.tabPage1.Controls.Add(this.passwordTB);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -185,10 +188,10 @@
             // 
             this.tabPage2.Controls.Add(this.label11);
             this.tabPage2.Controls.Add(this.label10);
-            this.tabPage2.Controls.Add(this.button2);
-            this.tabPage2.Controls.Add(this.textBox5);
-            this.tabPage2.Controls.Add(this.textBox4);
-            this.tabPage2.Controls.Add(this.textBox3);
+            this.tabPage2.Controls.Add(this.signUpBtn);
+            this.tabPage2.Controls.Add(this.reEnterPasswordTB);
+            this.tabPage2.Controls.Add(this.passwordSignUpTB);
+            this.tabPage2.Controls.Add(this.usernameSignUpTB);
             this.tabPage2.Controls.Add(this.label9);
             this.tabPage2.Controls.Add(this.label8);
             this.tabPage2.Controls.Add(this.label7);
@@ -222,45 +225,48 @@
             this.label10.TabIndex = 8;
             this.label10.Text = "Đẵ có tài khoản, hãy";
             // 
-            // button2
+            // signUpBtn
             // 
-            this.button2.Font = new System.Drawing.Font("Times New Roman", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(295, 282);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(259, 62);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "Đăng ký";
-            this.button2.UseVisualStyleBackColor = true;
+            this.signUpBtn.Font = new System.Drawing.Font("Times New Roman", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.signUpBtn.Location = new System.Drawing.Point(295, 282);
+            this.signUpBtn.Name = "signUpBtn";
+            this.signUpBtn.Size = new System.Drawing.Size(259, 62);
+            this.signUpBtn.TabIndex = 7;
+            this.signUpBtn.Text = "Đăng ký";
+            this.signUpBtn.UseVisualStyleBackColor = true;
+            this.signUpBtn.Click += new System.EventHandler(this.signUpBtn_Click);
             // 
-            // textBox5
+            // reEnterPasswordTB
             // 
-            this.textBox5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.reEnterPasswordTB.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBox5.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(295, 214);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(259, 35);
-            this.textBox5.TabIndex = 6;
+            this.reEnterPasswordTB.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reEnterPasswordTB.Location = new System.Drawing.Point(295, 214);
+            this.reEnterPasswordTB.Name = "reEnterPasswordTB";
+            this.reEnterPasswordTB.PasswordChar = '*';
+            this.reEnterPasswordTB.Size = new System.Drawing.Size(259, 35);
+            this.reEnterPasswordTB.TabIndex = 6;
             // 
-            // textBox4
+            // passwordSignUpTB
             // 
-            this.textBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.passwordSignUpTB.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBox4.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(295, 166);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(259, 35);
-            this.textBox4.TabIndex = 5;
+            this.passwordSignUpTB.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.passwordSignUpTB.Location = new System.Drawing.Point(295, 166);
+            this.passwordSignUpTB.Name = "passwordSignUpTB";
+            this.passwordSignUpTB.PasswordChar = '*';
+            this.passwordSignUpTB.Size = new System.Drawing.Size(259, 35);
+            this.passwordSignUpTB.TabIndex = 5;
             // 
-            // textBox3
+            // usernameSignUpTB
             // 
-            this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.usernameSignUpTB.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBox3.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(295, 120);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(259, 35);
-            this.textBox3.TabIndex = 4;
+            this.usernameSignUpTB.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usernameSignUpTB.Location = new System.Drawing.Point(295, 120);
+            this.usernameSignUpTB.Name = "usernameSignUpTB";
+            this.usernameSignUpTB.Size = new System.Drawing.Size(259, 35);
+            this.usernameSignUpTB.TabIndex = 4;
             // 
             // label9
             // 
@@ -338,10 +344,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label toSignUp;
+        private System.Windows.Forms.TextBox usernameTB;
+        private System.Windows.Forms.TextBox passwordTB;
+        private System.Windows.Forms.Button signInButton;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
@@ -349,10 +355,10 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Button signUpBtn;
+        private System.Windows.Forms.TextBox reEnterPasswordTB;
+        private System.Windows.Forms.TextBox passwordSignUpTB;
+        private System.Windows.Forms.TextBox usernameSignUpTB;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
     }
