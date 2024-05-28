@@ -20,7 +20,7 @@ namespace RoomManager
             // Thêm các đối tượng Room vào DataGridView
             foreach (var room in rooms)
             {
-                roomTable.Rows.Add(room.ID, room.Name, room.Status);
+                roomTable.Rows.Add(room.ID, room.Name, room.Description);
             }
         }
         public Admin()
@@ -40,13 +40,13 @@ namespace RoomManager
         {
             //add rooms
             string name = roomNameTB.Text.Trim();
-            string status = roomStatusCB.Text.Trim();
-            if(name == "" || status == "")
+            string description = descriptionTB.Text.Trim();
+            if(name == "" || description== "")
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin");
                 return;
             }
-            int httpStatus = roomController.AddNewRoom(name, status);
+            int httpStatus = roomController.AddNewRoom(name, description);
             switch (httpStatus) {
                 case 200:
                     //success
@@ -131,7 +131,7 @@ namespace RoomManager
             // Thêm các đối tượng Room vào DataGridView
             foreach (var customer in customers)
             {
-                customerTable.Rows.Add(customer.ID, customer.Name, customer.PhoneNumber, customer.checkInDate, customer.checkOutDate, customer.room.Name);
+                customerTable.Rows.Add(customer.ID, customer.user.Name, customer.user.PhoneNumber, customer.checkInDate, customer.checkOutDate, customer.room.Name);
             }
         }
         private DataGridViewRow getSelectedRow(DataGridView dataGridView)

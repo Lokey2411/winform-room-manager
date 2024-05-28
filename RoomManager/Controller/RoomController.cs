@@ -25,16 +25,17 @@ namespace RoomManager.Controller
                 using (SqlConnection conn = getConnection())
                 {
                     conn.Open();
-                    string sql = "SELECT ID, Name, Status FROM rooms;";
+                    string sql = "SELECT * FROM rooms;";
                     SqlCommand command = new SqlCommand(sql, conn);
                     SqlDataReader reader = command.ExecuteReader();
 
                     while (reader.Read())
                     {
-                        int id = reader.GetInt32(0);
-                        string name = reader.GetString(1);
-                        string status = reader.GetString(2);
-                        rooms.Add(new Room (id,name,status));
+                        int id = GetDataFromField<int>(reader, "id");
+                        string name = GetDataFromField<string>(reader, "name");
+                        string descriptions = GetDataFromField<string>(reader, "descriptions");
+                        string status = GetDataFromField<string>(reader, "status");
+                        rooms.Add(new Room (id,name,status,descriptions));
                     }
                 }
             }
@@ -46,7 +47,7 @@ namespace RoomManager.Controller
 
             return rooms.ToArray();
         }
-        public int AddNewRoom(string name, string status)
+        public int AddNewRoom(string name, string descriptions)
         {
             try
             {
@@ -60,10 +61,10 @@ namespace RoomManager.Controller
                 if (reader.Read()) { conn.Close(); return 409; }
                 conn.Close();      //close connection before insert
                 conn.Open();
-                sql = "INSERT INTO rooms(name, status) VALUES(@name,@status)";
+                sql = "INSERT INTO rooms(name,descriptions, status) VALUES(@name,@descriptions, N'chưa đặt')";
                 command = new SqlCommand(sql, conn);
                 command.Parameters.AddWithValue("name", name); //binding params
-                command.Parameters.AddWithValue("status", status);
+                command.Parameters.AddWithValue("descriptions", descriptions);
                 command.ExecuteNonQuery();
                 conn.Close();
                 return 200;
@@ -83,7 +84,7 @@ namespace RoomManager.Controller
                 using (SqlConnection conn = getConnection())
                 {
                     conn.Open();
-                    string sql = "SELECT * FROM rooms where name  LIKE '%"+name+"%';";
+                    string sql = "SELECT * FROM rooms where name  LIKE '%"+name+"%' or descriptions LIKE '%"+name+"%';";
                     SqlCommand command = new SqlCommand(sql, conn);
                     SqlDataReader reader = command.ExecuteReader();
 
@@ -92,7 +93,8 @@ namespace RoomManager.Controller
                         int id = reader.GetInt32(0);
                         string dbnameResult = reader.GetString(1);
                         string status = reader.GetString(2);
-                        rooms.Add(new Room(id, dbnameResult, status));
+                        string descriptions = GetDataFromField<string>(reader, "descriptions");
+                        rooms.Add(new Room(id, dbnameResult, status,descriptions));
                     }
                     conn.Close();
                 }

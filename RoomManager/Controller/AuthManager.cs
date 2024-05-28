@@ -35,7 +35,7 @@ namespace RoomManager
             {
                 SqlConnection conn = getConnection();
                 conn.Open();
-                String sql = "Select * from users where username LIKE '" + username + "'";
+                String sql = "Select * from users where username = '" + username + "'";
                 SqlCommand command = new SqlCommand(sql, conn);
                 SqlDataReader reader = command.ExecuteReader();
                 if (reader.Read())
@@ -52,7 +52,7 @@ namespace RoomManager
                 return false;
             }
         }
-        public void signUp(String username, String password)
+        public void signUp(String username, String password, String customerName, String phoneNumber)
         {
             if (hasUser(username))
             {
@@ -63,8 +63,12 @@ namespace RoomManager
             {
                 SqlConnection conn = getConnection();
                 conn.Open();
-                String sql = "INSERT INTO users(username, password) VALUES('" + username + "','" + password + "');";
+                String sql = "INSERT INTO users(username, password, name, phone_number) VALUES(@username, @password, @customerName, @phoneNumber);";
                 SqlCommand command = new SqlCommand(sql, conn);
+                command.Parameters.AddWithValue("username", username);
+                command.Parameters.AddWithValue("password", password);
+                command.Parameters.AddWithValue("customerName", customerName);
+                command.Parameters.AddWithValue("phoneNumber", phoneNumber);
                 command.ExecuteNonQuery();
                 MessageBox.Show("Tài khoản đã đăng ký thành công");
                 conn.Close();
@@ -87,6 +91,26 @@ namespace RoomManager
                 return "customer";
             }
             return "invalid log in";
+        }
+        public int GetUserId(string username)
+        {
+            try
+            {
+                SqlConnection conn = getConnection();
+                conn.Open();
+                string sql = "select id from users where username = @username";
+                SqlCommand command = new SqlCommand(sql, conn);
+                command.Parameters.AddWithValue("username", username);
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.Read()) return reader.GetInt32(0);
+                conn.Close();
+                return -1;
+            }
+            catch(SqlException ex)
+            {
+                MessageBox.Show("Lỗi truy vấn, vui lòng thử lại"+ex.Message);
+                return -1;
+            }
         }
         public AuthManager()
         {

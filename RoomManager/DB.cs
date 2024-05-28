@@ -21,14 +21,16 @@ namespace RoomManager
                 String sql = "IF OBJECT_ID(N'users', N'U') IS NULL BEGIN CREATE TABLE users (" +
                     "id int PRIMARY KEY NOT NULL IDENTITY(1,1)," +
                     "username varchar(255) NOT NULL," +
-                    "password text NOT NULL); " +
+                    "password text NOT NULL," +
+                    "name nvarchar(255) NOT NULL, " +
+                    "phone_number varchar(20) NOT NULL);" +
                     "END";
                 SqlCommand command = new SqlCommand(sql, conn);
                 AuthManager auth = new AuthManager();
                 command.ExecuteNonQuery();
                 if (!auth.hasUser("admin"))
                 {
-                    command = new SqlCommand("INSERT INTO users( username, password) VALUES( 'admin','admin') ;", conn);
+                    command = new SqlCommand("INSERT INTO users( username, password, name, phone_number) VALUES( 'admin','admin', 'admin', '0978129824') ;", conn);
                     command.ExecuteNonQuery();
                 }
                 conn.Close();
@@ -48,7 +50,9 @@ namespace RoomManager
                     "CREATE TABLE rooms(" +
                     "id int PRIMARY KEY NOT NULL IDENTITY(1,1), " +
                     "name varchar(255) NOT NULL, " +
-                    "status nvarchar(50) NOT NULL);" +
+                    "status nvarchar(50) NOT NULL," +
+                    "descriptions nvarchar(MAX) NOT NULL" +
+                    ");" +
                     "END";
                 SqlCommand command = new SqlCommand(sql, conn);
                 command.ExecuteNonQuery();
@@ -69,11 +73,11 @@ namespace RoomManager
                     "BEGIN  " +
                     "CREATE TABLE customers(" +
                     "id int NOT NULL PRIMARY KEY IDENTITY(1,1), " +
-                    "name nvarchar(255) NOT NULL, " +
-                    "phone_number varchar(20) NOT NULL,"+
                     "check_in_date date NOT NULL, " +
                     "check_out_date date NOT NULL, " +
-                    "roomId int NOT NULL FOREIGN KEY REFERENCES rooms(id) ); " +
+                    "roomId int NOT NULL FOREIGN KEY REFERENCES rooms(id), " +
+                    "userId int NOT NULL FOREIGN KEY REFERENCES users(id)" +
+                    "); " +
                     "END";
                 SqlCommand command = new SqlCommand(sql, conn);
                 command.ExecuteNonQuery();
@@ -90,6 +94,21 @@ namespace RoomManager
             createRoomsTable();
             createCustomersTable();
         }
+        public T GetDataFromField<T>(SqlDataReader reader, string field)
+        {
+            int fieldIndex = reader.GetOrdinal(field);
+            object value = reader.GetValue(fieldIndex);
+
+            // Kiểm tra giá trị null trước khi chuyển đổi
+            if (value == DBNull.Value)
+            {
+                return default(T);
+            }
+
+            // Chuyển đổi giá trị thành kiểu dữ liệu T
+            return (T)Convert.ChangeType(value, typeof(T));
+        }
+
         public DB()
         {
 

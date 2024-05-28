@@ -39,6 +39,8 @@ namespace RoomManager
             String username = usernameSignUpTB.Text;
             String password = passwordSignUpTB.Text;
             String reEnteredPassword = reEnterPasswordTB.Text;
+            String customerName = customerNameTB.Text;
+            String phoneNumber = phoneNumberTB.Text;
             if (password != reEnteredPassword)
             {
                 MessageBox.Show("Mật khẩu không trùng khớp, vui lòng nhập lại!");
@@ -49,7 +51,8 @@ namespace RoomManager
                 MessageBox.Show("Mật khẩu phải có từ 4-16 ký tự");
                 return;
             }
-            auth.signUp(username, password);
+            auth.signUp(username, password, customerName, phoneNumber);
         }
+
     }
 }
