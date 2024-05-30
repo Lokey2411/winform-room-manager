@@ -32,13 +32,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.toSignUp = new System.Windows.Forms.Label();
             this.usernameTB = new System.Windows.Forms.TextBox();
             this.passwordTB = new System.Windows.Forms.TextBox();
             this.signInButton = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.phoneNumberTB = new System.Windows.Forms.TextBox();
+            this.customerNameTB = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.signUpBtn = new System.Windows.Forms.Button();
@@ -100,26 +102,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(189, 337);
+            this.label4.Location = new System.Drawing.Point(173, 337);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(281, 27);
+            this.label4.Size = new System.Drawing.Size(366, 27);
             this.label4.TabIndex = 4;
-            this.label4.Text = "Bạn chưa có tài khoản, hãy ";
-            // 
-            // toSignUp
-            // 
-            this.toSignUp.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.toSignUp.AutoSize = true;
-            this.toSignUp.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toSignUp.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.toSignUp.Location = new System.Drawing.Point(457, 337);
-            this.toSignUp.Name = "toSignUp";
-            this.toSignUp.Size = new System.Drawing.Size(93, 27);
-            this.toSignUp.TabIndex = 5;
-            this.toSignUp.Text = "Đăng ký";
-            this.toSignUp.Click += new System.EventHandler(this.toSignUp_Click);
+            this.label4.Text = "Bạn chưa có tài khoản? Hãy đăng ký";
             // 
             // usernameTB
             // 
@@ -163,12 +150,11 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 1);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(790, 452);
+            this.tabControl1.Size = new System.Drawing.Size(790, 540);
             this.tabControl1.TabIndex = 9;
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.toSignUp);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.label4);
             this.tabPage1.Controls.Add(this.label2);
@@ -179,13 +165,16 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(782, 426);
+            this.tabPage1.Size = new System.Drawing.Size(782, 514);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Đăng nhập";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.phoneNumberTB);
+            this.tabPage2.Controls.Add(this.customerNameTB);
+            this.tabPage2.Controls.Add(this.label5);
             this.tabPage2.Controls.Add(this.label11);
             this.tabPage2.Controls.Add(this.label10);
             this.tabPage2.Controls.Add(this.signUpBtn);
@@ -199,36 +188,71 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(782, 426);
+            this.tabPage2.Size = new System.Drawing.Size(782, 514);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Đăng ký";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // phoneNumberTB
+            // 
+            this.phoneNumberTB.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.phoneNumberTB.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.phoneNumberTB.Location = new System.Drawing.Point(295, 318);
+            this.phoneNumberTB.Name = "phoneNumberTB";
+            this.phoneNumberTB.Size = new System.Drawing.Size(259, 35);
+            this.phoneNumberTB.TabIndex = 12;
+            // 
+            // customerNameTB
+            // 
+            this.customerNameTB.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.customerNameTB.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.customerNameTB.Location = new System.Drawing.Point(295, 270);
+            this.customerNameTB.Name = "customerNameTB";
+            this.customerNameTB.Size = new System.Drawing.Size(259, 35);
+            this.customerNameTB.TabIndex = 11;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(117, 318);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(172, 31);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Số điện thoại: ";
+            // 
             // label11
             // 
+            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label11.Location = new System.Drawing.Point(396, 374);
+            this.label11.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(90, 270);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(116, 27);
+            this.label11.Size = new System.Drawing.Size(199, 31);
             this.label11.TabIndex = 9;
-            this.label11.Text = "Đăng nhập";
+            this.label11.Text = "Tên người dùng: ";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(190, 374);
+            this.label10.Location = new System.Drawing.Point(267, 478);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(211, 27);
+            this.label10.Size = new System.Drawing.Size(325, 27);
             this.label10.TabIndex = 8;
-            this.label10.Text = "Đẵ có tài khoản, hãy";
+            this.label10.Text = "Đã có tài khoản? Hãy đăng nhập";
             // 
             // signUpBtn
             // 
             this.signUpBtn.Font = new System.Drawing.Font("Times New Roman", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.signUpBtn.Location = new System.Drawing.Point(295, 282);
+            this.signUpBtn.Location = new System.Drawing.Point(295, 387);
             this.signUpBtn.Name = "signUpBtn";
             this.signUpBtn.Size = new System.Drawing.Size(259, 62);
             this.signUpBtn.TabIndex = 7;
@@ -324,7 +348,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(786, 450);
+            this.ClientSize = new System.Drawing.Size(786, 538);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "DangNhap_DangKy";
@@ -344,7 +368,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label toSignUp;
         private System.Windows.Forms.TextBox usernameTB;
         private System.Windows.Forms.TextBox passwordTB;
         private System.Windows.Forms.Button signInButton;
@@ -359,7 +382,10 @@
         private System.Windows.Forms.TextBox reEnterPasswordTB;
         private System.Windows.Forms.TextBox passwordSignUpTB;
         private System.Windows.Forms.TextBox usernameSignUpTB;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox phoneNumberTB;
+        private System.Windows.Forms.TextBox customerNameTB;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label11;
     }
 }

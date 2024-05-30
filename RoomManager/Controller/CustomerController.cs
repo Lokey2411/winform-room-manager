@@ -19,18 +19,19 @@ namespace RoomManager.Controller
             {
                 SqlConnection conn = getConnection();
                 conn.Open();
-                string sql = "select distinct * from customers as c join rooms as r on c.roomId = r.id;";
+                string sql = "select c.*, u.*,  u.name as customerName, r.*, r.name as roomName from (customers as c join rooms as r on c.roomId = r.id) join users as u on c.userId = u.id;";
                 SqlCommand command = new SqlCommand(sql, conn);
                 SqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    int id = reader.GetInt32(0);
-                    String name = reader.GetString(1);
-                    String phoneNumber = reader.GetString(2);
-                    DateTime checkInDate = reader.GetDateTime(3);
-                    DateTime checkOutDate = reader.GetDateTime(4);
-                    Room room = new Room(reader.GetInt32(5), reader.GetString(7), reader.GetString(8));
-                    list.Add(new Customer(id, name, phoneNumber, checkInDate, checkOutDate, room));
+                    int id = GetDataFromField<int>(reader,"id");
+                    String name = GetDataFromField<string>(reader, "customerName");
+                    String phoneNumber = GetDataFromField<string>(reader, "phone_number");
+                    DateTime checkInDate = GetDataFromField<DateTime>(reader, "check_in_date");
+                    DateTime checkOutDate = GetDataFromField<DateTime>(reader, "check_out_date");
+                    Room room = new Room(GetDataFromField<int>(reader,"roomId"), GetDataFromField<string>(reader,"roomName"),GetDataFromField<string>(reader, "status"), GetDataFromField<string>(reader, "descriptions"));
+                    int userId = reader.GetInt32(4);
+                    list.Add(new Customer(id, name, phoneNumber, checkInDate, checkOutDate, room, userId));
                 }
                 conn.Close();
             }
@@ -46,18 +47,20 @@ namespace RoomManager.Controller
             {
                 SqlConnection conn = getConnection();
                 conn.Open();
-                string sql = "select distinct * from customers as c join rooms as r on c.roomId = r.id where r.name LIKE '%"+name+"%';";
+                string sql = "select c.*, r.*, r.name as roomName from customers as c join rooms as r on c.roomId = r.id where r.descriptions LIKE '%"+name+"%';";
                 SqlCommand command = new SqlCommand(sql, conn);
                 SqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    int id = reader.GetInt32(0);
-                    String dbName = reader.GetString(1);
-                    String phoneNumber = reader.GetString(2);
-                    DateTime checkInDate = reader.GetDateTime(3);
-                    DateTime checkOutDate = reader.GetDateTime(4);
-                    Room room = new Room(reader.GetInt32(5), reader.GetString(7), reader.GetString(8));
-                    list.Add(new Customer(id, dbName, phoneNumber, checkInDate, checkOutDate, room));
+                    AuthManager auth = new AuthManager(); 
+                    int id = GetDataFromField<int>(reader,"id");
+                    DateTime checkInDate = GetDataFromField<DateTime>(reader, "check_in_date");
+                    DateTime checkOutDate = GetDataFromField<DateTime>(reader, "check_out_date");
+                    Room room = new Room(GetDataFromField<int>(reader, "roomId"), GetDataFromField<string>(reader, "roomName"), GetDataFromField<string>(reader, "status"),GetDataFromField<string>(reader, "descriptions"));
+                    String dbName = reader.GetString(11);
+                    String phoneNumber = reader.GetString(4);
+                    int userId = auth.GetUserId(dbName);
+                    list.Add(new Customer(id, dbName, phoneNumber, checkInDate, checkOutDate, room, userId));
                 }
                 conn.Close();
             }
