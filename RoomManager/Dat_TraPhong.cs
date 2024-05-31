@@ -1,7 +1,10 @@
-﻿using System;
+﻿using RoomManager.Controller;
+using RoomManager.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlTypes;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,12 +15,34 @@ namespace RoomManager
 {
     public partial class Dat_TraPhong : Form
     {
+        private static RoomController roomController = new RoomController();
+        private static CustomerController customerController = new CustomerController();
+        public string username;
         public Dat_TraPhong()
         {
             InitializeComponent();
         }
+        private void updatePhongdatTable(Room[] rooms)
+        {
+            Grid_datphong.Rows.Clear();
+
+            foreach (var room in rooms)
+            {
+                Grid_datphong.Rows.Add(room.ID, room.Name, room.Status);
+            }
+        }
         private void Dat_TraPhong_Load(object sender, EventArgs e)
         {
+            Room[] rooms = roomController.GetAllRooms();
+            updatePhongdatTable (rooms);
+            User user = customerController.GetUser(username);
+            TB_tenDatphong.Text = user.Name;
+            TB_sdtDatphong.Text = user.PhoneNumber;
+            string[] descriptions = roomController.GetAllRoomDescriptions();
+            foreach(string d  in descriptions)
+            {
+                CBB_motaPhong.Items.Add(d);
+            }
             Price1_traphong_caculate();
         }
         private void Price_datphong_caculate()
@@ -63,9 +88,13 @@ namespace RoomManager
         }
         private void BNT_datphong_Click(object sender, EventArgs e)
         {
+            SqlDateTime checkin = datePick_dat_datphong.Value;
+            SqlDateTime checkout = datePick_tra_datphong.Value;
+
             DialogResult result_datphong = MessageBox.Show("Bạn chắc chắn với các thông tin của mình chưa ?", "Xác nhận đặt phòng", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result_datphong == DialogResult.Yes)
             {
+
                 MessageBox.Show("Bạn đã đặt phòng thành công!", "Thông báo xác nhận", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
@@ -75,6 +104,27 @@ namespace RoomManager
             if (result_traphong == DialogResult.Yes)
             {
                 MessageBox.Show("Bạn đã trả phòng và thanh toán thành công!", "Thông báo xác nhận", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+        private void CBB_motaPhong_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBox comboBox = (ComboBox)sender;
+            if (comboBox.Text == "")
+            {
+                updatePhongdatTable(roomController.GetAllRooms());
+            }
+            else
+            {
+                updatePhongdatTable(roomController.SearchRoomByName(comboBox.Text));
+            }
+        }
+        private void Grid_datphong_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (Grid_datphong.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = Grid_datphong.SelectedRows[0];
+                string phongDangdat = selectedRow.Cells[1].Value .ToString();
+                LB_PhongdangDat.Text = phongDangdat;
             }
         }
     }

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Data.SqlTypes;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +15,33 @@ namespace RoomManager.Controller
     internal class CustomerController:DB
     {
         public CustomerController() { }
+        public User GetUser(string username)
+        {
+            User user = new User();
+            try 
+            {
+                SqlConnection conn = getConnection();
+                conn.Open();
+                string sql = "select * from users where username = @username";
+                SqlCommand command = new SqlCommand(sql, conn);
+                command.Parameters.AddWithValue("username", username);
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+                    //handle if user exists
+                    int id = GetDataFromField<int>(reader,"id");
+                    string name = GetDataFromField<string>(reader, "name");
+                    string phoneNumber = GetDataFromField<string>(reader, "phone_number");
+                    user = new User(id,name,phoneNumber);
+                }
+                conn.Close();
+            }
+            catch (SqlException ex) 
+            {
+                MessageBox.Show("Lỗi truy vấn: " + ex);
+            }
+            return user;
+        }
         public Customer[] GetAllCustomers() {
             List<Customer> list = new List<Customer>();
             try
@@ -39,6 +68,33 @@ namespace RoomManager.Controller
                 MessageBox.Show("Lỗi cơ sở dữ liệu: " + ex.Message);
             }
             return list.ToArray();
+        }
+        public void CheckInRoom()
+        {
+            try
+            {
+                SqlConnection conn = getConnection();
+                conn.Open();
+                string sql = "INSERT INTO customers(check_in_date, check_out_date, roomId, userId) VALUES(@checkin, @checkout, @roomId, @userId)";
+                SqlCommand command = new SqlCommand(sql, conn);
+                conn.Close();
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Lỗi cơ sở dữ liệu: " + ex.Message);
+            }
+        }
+        public void GetAllCustomers()
+        {
+            try
+            {
+                SqlConnection conn = getConnection();
+                conn.Open();
+                string sql = "SELECT rooms.id, rooms.name, rooms.description, customers.check_in_date, customers.check_out_date " +
+                             "FROM rooms " +
+                             "INNER JOIN customers ON rooms.id = customers.roomId";
+                
+            }
         }
         public Customer[] SearchCustomer(string name)
         {

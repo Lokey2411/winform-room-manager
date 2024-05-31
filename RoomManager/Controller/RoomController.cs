@@ -47,6 +47,36 @@ namespace RoomManager.Controller
 
             return rooms.ToArray();
         }
+        //TuHa
+        public string[] GetAllRoomDescriptions()
+        {
+            List<string> descriptions = new List<string>();
+
+            try
+            {
+                using (SqlConnection conn = getConnection())
+                {
+                    conn.Open();
+                    string sql = "SELECT descriptions FROM rooms;";
+                    SqlCommand command = new SqlCommand(sql, conn);
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        string description = reader.GetString(0);
+                        descriptions.Add(description);
+                    }
+                    conn.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi: " + ex.Message);
+            }
+
+            return descriptions.ToArray();
+        }
+        //TuHa
         public int AddNewRoom(string name, string descriptions)
         {
             try

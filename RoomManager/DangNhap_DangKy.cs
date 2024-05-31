@@ -27,7 +27,11 @@ namespace RoomManager
                 //this.Hide();
                 admin.ShowDialog();
             }
-            else if (role == "user") { }
+            else if (role == "customer") { 
+                Dat_TraPhong dat_TraPhong = new Dat_TraPhong();
+                dat_TraPhong.username = usernameTB.Text;
+                dat_TraPhong.ShowDialog();
+            }
             else
             {
                 MessageBox.Show("Đăng nhập thất bại, vui lòng thử lại");

@@ -61,11 +61,11 @@
     <Compile Include="DangNhap_DangKy.Designer.cs">
       <DependentUpon>DangNhap_DangKy.cs</DependentUpon>
     </Compile>
-    <Compile Include="Dat-TraPhong.cs">
+    <Compile Include="Dat_TraPhong.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dat-TraPhong.Designer.cs">
-      <DependentUpon>Dat-TraPhong.cs</DependentUpon>
+    <Compile Include="Dat_TraPhong.Designer.cs">
+      <DependentUpon>Dat_TraPhong.cs</DependentUpon>
     </Compile>
     <Compile Include="DB.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -79,8 +79,8 @@
     <EmbeddedResource Include="DangNhap_DangKy.resx">
       <DependentUpon>DangNhap_DangKy.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dat-TraPhong.resx">
-      <DependentUpon>Dat-TraPhong.cs</DependentUpon>
+    <EmbeddedResource Include="Dat_TraPhong.resx">
+      <DependentUpon>Dat_TraPhong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
