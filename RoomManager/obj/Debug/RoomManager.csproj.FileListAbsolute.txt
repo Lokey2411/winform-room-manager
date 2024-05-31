@@ -15,7 +15,6 @@ C:\Users\ADMIN\source\repos\RoomManager\RoomManager\obj\Debug\RoomManager.csproj
 C:\Users\ADMIN\source\repos\RoomManager\RoomManager\obj\Debug\RoomManager.Admin.resources
 C:\Users\ADMIN\source\repos\RoomManager\RoomManager\obj\Debug\RoomManager.DangNhap_DangKy.resources
 C:\Users\ADMIN\source\repos\RoomManager\RoomManager\obj\Debug\RoomManager.Properties.Resources.resources
-C:\Users\ADMIN\source\repos\RoomManager\RoomManager\obj\Debug\RoomManager.QuanlyPhong_Khach.resources
 C:\Users\ADMIN\source\repos\RoomManager\RoomManager\obj\Debug\RoomManager.csproj.GenerateResource.cache
 C:\Users\ADMIN\source\repos\RoomManager\RoomManager\obj\Debug\RoomManager.csproj.CoreCompileInputs.cache
 C:\Users\ADMIN\source\repos\RoomManager\RoomManager\obj\Debug\RoomManager.exe

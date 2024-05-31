@@ -56,9 +56,7 @@
             this.customerIdTB = new System.Windows.Forms.TextBox();
             this.bookedRoomNameTB = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.checkOutDateTB = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.checkInDateTB = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.phoneNumberTB = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -73,6 +71,8 @@
             this.checkInDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.checkOutDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bookedRoomColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.checkInDatePicker = new System.Windows.Forms.DateTimePicker();
+            this.checkOutDatePicker = new System.Windows.Forms.DateTimePicker();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.roomTable)).BeginInit();
@@ -113,6 +113,7 @@
             // 
             // descriptionTB
             // 
+            this.descriptionTB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.descriptionTB.Location = new System.Drawing.Point(225, 121);
             this.descriptionTB.Name = "descriptionTB";
             this.descriptionTB.Size = new System.Drawing.Size(330, 20);
@@ -136,21 +137,21 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(-1, 0);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.label3.Location = new System.Drawing.Point(-2, 0);
             this.label3.Name = "label3";
-            this.label3.Padding = new System.Windows.Forms.Padding(4);
-            this.label3.Size = new System.Drawing.Size(76, 27);
+            this.label3.Size = new System.Drawing.Size(119, 29);
             this.label3.TabIndex = 7;
             this.label3.Text = "Tìm kiếm:";
             // 
             // searchTB
             // 
             this.searchTB.Dock = System.Windows.Forms.DockStyle.Top;
+            this.searchTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchTB.ForeColor = System.Drawing.SystemColors.WindowText;
             this.searchTB.Location = new System.Drawing.Point(3, 3);
             this.searchTB.Name = "searchTB";
-            this.searchTB.Size = new System.Drawing.Size(870, 20);
+            this.searchTB.Size = new System.Drawing.Size(870, 26);
             this.searchTB.TabIndex = 6;
             this.searchTB.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.searchTB.TextChanged += new System.EventHandler(this.searchTB_TextChanged);
@@ -287,12 +288,12 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.HotPink;
+            this.tabPage2.Controls.Add(this.checkOutDatePicker);
+            this.tabPage2.Controls.Add(this.checkInDatePicker);
             this.tabPage2.Controls.Add(this.customerIdTB);
             this.tabPage2.Controls.Add(this.bookedRoomNameTB);
             this.tabPage2.Controls.Add(this.label9);
-            this.tabPage2.Controls.Add(this.checkOutDateTB);
             this.tabPage2.Controls.Add(this.label7);
-            this.tabPage2.Controls.Add(this.checkInDateTB);
             this.tabPage2.Controls.Add(this.label8);
             this.tabPage2.Controls.Add(this.phoneNumberTB);
             this.tabPage2.Controls.Add(this.label4);
@@ -340,14 +341,6 @@
             this.label9.TabIndex = 22;
             this.label9.Text = "Phòng đã đặt";
             // 
-            // checkOutDateTB
-            // 
-            this.checkOutDateTB.Enabled = false;
-            this.checkOutDateTB.Location = new System.Drawing.Point(685, 125);
-            this.checkOutDateTB.Name = "checkOutDateTB";
-            this.checkOutDateTB.Size = new System.Drawing.Size(187, 20);
-            this.checkOutDateTB.TabIndex = 21;
-            // 
             // label7
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -359,17 +352,6 @@
             this.label7.Size = new System.Drawing.Size(176, 29);
             this.label7.TabIndex = 20;
             this.label7.Text = "Ngày trả phòng";
-            // 
-            // checkInDateTB
-            // 
-            this.checkInDateTB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.checkInDateTB.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.checkInDateTB.Enabled = false;
-            this.checkInDateTB.HideSelection = false;
-            this.checkInDateTB.Location = new System.Drawing.Point(685, 70);
-            this.checkInDateTB.Name = "checkInDateTB";
-            this.checkInDateTB.Size = new System.Drawing.Size(186, 20);
-            this.checkInDateTB.TabIndex = 19;
             // 
             // label8
             // 
@@ -394,20 +376,21 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.label4.Location = new System.Drawing.Point(0, 1);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(90, 25);
+            this.label4.Size = new System.Drawing.Size(119, 29);
             this.label4.TabIndex = 16;
             this.label4.Text = "Tìm kiếm:";
             // 
             // searchCustomerTB
             // 
             this.searchCustomerTB.Dock = System.Windows.Forms.DockStyle.Top;
+            this.searchCustomerTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchCustomerTB.ForeColor = System.Drawing.SystemColors.WindowText;
             this.searchCustomerTB.Location = new System.Drawing.Point(3, 3);
             this.searchCustomerTB.Name = "searchCustomerTB";
-            this.searchCustomerTB.Size = new System.Drawing.Size(870, 20);
+            this.searchCustomerTB.Size = new System.Drawing.Size(870, 26);
             this.searchCustomerTB.TabIndex = 15;
             this.searchCustomerTB.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.searchCustomerTB.TextChanged += new System.EventHandler(this.searchCustomerTB_TextChanged);
@@ -560,6 +543,24 @@
             this.bookedRoomColumn.ReadOnly = true;
             this.bookedRoomColumn.Width = 150;
             // 
+            // checkInDatePicker
+            // 
+            this.checkInDatePicker.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.checkInDatePicker.Location = new System.Drawing.Point(685, 70);
+            this.checkInDatePicker.Name = "checkInDatePicker";
+            this.checkInDatePicker.Size = new System.Drawing.Size(183, 20);
+            this.checkInDatePicker.TabIndex = 25;
+            this.checkInDatePicker.Value = new System.DateTime(2024, 5, 31, 0, 0, 0, 0);
+            // 
+            // checkOutDatePicker
+            // 
+            this.checkOutDatePicker.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.checkOutDatePicker.Location = new System.Drawing.Point(685, 125);
+            this.checkOutDatePicker.Name = "checkOutDatePicker";
+            this.checkOutDatePicker.Size = new System.Drawing.Size(183, 20);
+            this.checkOutDatePicker.TabIndex = 26;
+            this.checkOutDatePicker.Value = new System.DateTime(2024, 5, 31, 0, 0, 0, 0);
+            // 
             // Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -569,7 +570,7 @@
             this.ForeColor = System.Drawing.Color.White;
             this.Name = "Admin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Admin";
+            this.Text = "Quản lý phòng / thống kê khách đặt phòng";
             this.Load += new System.EventHandler(this.Admin_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -610,14 +611,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn bookedRoomColumn;
         private System.Windows.Forms.TextBox bookedRoomNameTB;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox checkOutDateTB;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox checkInDateTB;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox customerIdTB;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn roomNameColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn statusColumn;
         private System.Windows.Forms.TextBox descriptionTB;
+        private System.Windows.Forms.DateTimePicker checkOutDatePicker;
+        private System.Windows.Forms.DateTimePicker checkInDatePicker;
     }
 }

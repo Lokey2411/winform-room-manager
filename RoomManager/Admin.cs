@@ -131,7 +131,7 @@ namespace RoomManager
             // Thêm các đối tượng Room vào DataGridView
             foreach (var customer in customers)
             {
-                customerTable.Rows.Add(customer.ID, customer.user.Name, customer.user.PhoneNumber, customer.checkInDate, customer.checkOutDate, customer.room.Name);
+                customerTable.Rows.Add(customer.ID, customer.user.Name, customer.user.PhoneNumber, customer.checkInDate.ToShortDateString(), customer.checkOutDate.ToShortDateString(), customer.room.Name);
             }
         }
         private DataGridViewRow getSelectedRow(DataGridView dataGridView)
@@ -147,8 +147,8 @@ namespace RoomManager
             customerIdTB.Text = selectedRow.Cells[0].Value.ToString();
             customerNameTB.Text = selectedRow.Cells[1].Value.ToString();
             phoneNumberTB.Text = selectedRow.Cells[2].Value.ToString();
-            checkInDateTB.Text = selectedRow.Cells[3].Value.ToString();
-            checkOutDateTB.Text = selectedRow.Cells[4].Value.ToString();
+            checkInDatePicker.Value = Convert.ToDateTime(selectedRow.Cells[3].Value.ToString());
+            checkOutDatePicker.Value = Convert.ToDateTime(selectedRow.Cells[4].Value.ToString());
             bookedRoomNameTB.Text = selectedRow.Cells[5].Value.ToString();
         }
 
@@ -164,6 +164,11 @@ namespace RoomManager
             {
                 updateCustomersTable(customerController.SearchCustomer(target.Text));
             }
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
