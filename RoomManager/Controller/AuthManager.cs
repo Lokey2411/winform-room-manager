@@ -2,6 +2,8 @@
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
+using RoomManager.Models;
+
 namespace RoomManager
 {
     internal class AuthManager : DB

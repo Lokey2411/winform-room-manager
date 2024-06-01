@@ -200,7 +200,6 @@
             this.phoneNumberTB.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.phoneNumberTB.Location = new System.Drawing.Point(295, 318);
             this.phoneNumberTB.Name = "phoneNumberTB";
-            this.phoneNumberTB.PasswordChar = '*';
             this.phoneNumberTB.Size = new System.Drawing.Size(259, 35);
             this.phoneNumberTB.TabIndex = 12;
             // 
@@ -211,7 +210,6 @@
             this.customerNameTB.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.customerNameTB.Location = new System.Drawing.Point(295, 270);
             this.customerNameTB.Name = "customerNameTB";
-            this.customerNameTB.PasswordChar = '*';
             this.customerNameTB.Size = new System.Drawing.Size(259, 35);
             this.customerNameTB.TabIndex = 11;
             // 

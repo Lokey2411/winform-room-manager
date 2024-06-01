@@ -53,6 +53,8 @@
             this.roomNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.checkOutDatePicker = new System.Windows.Forms.DateTimePicker();
+            this.checkInDatePicker = new System.Windows.Forms.DateTimePicker();
             this.customerIdTB = new System.Windows.Forms.TextBox();
             this.bookedRoomNameTB = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -71,8 +73,6 @@
             this.checkInDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.checkOutDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bookedRoomColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.checkInDatePicker = new System.Windows.Forms.DateTimePicker();
-            this.checkOutDatePicker = new System.Windows.Forms.DateTimePicker();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.roomTable)).BeginInit();
@@ -113,7 +113,6 @@
             // 
             // descriptionTB
             // 
-            this.descriptionTB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.descriptionTB.Location = new System.Drawing.Point(225, 121);
             this.descriptionTB.Name = "descriptionTB";
             this.descriptionTB.Size = new System.Drawing.Size(330, 20);
@@ -121,7 +120,7 @@
             // 
             // removeRoomBtn
             // 
-            this.removeRoomBtn.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.removeRoomBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.removeRoomBtn.BackColor = System.Drawing.Color.Red;
             this.removeRoomBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.removeRoomBtn.Font = new System.Drawing.Font("UVN Gio May", 12F);
@@ -158,7 +157,7 @@
             // 
             // addRoomBtn
             // 
-            this.addRoomBtn.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.addRoomBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.addRoomBtn.BackColor = System.Drawing.Color.DarkGreen;
             this.addRoomBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.addRoomBtn.Font = new System.Drawing.Font("UVN Gio May", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -173,7 +172,6 @@
             // 
             // label2
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -185,7 +183,6 @@
             // 
             // roomNameTB
             // 
-            this.roomNameTB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.roomNameTB.Location = new System.Drawing.Point(225, 68);
             this.roomNameTB.Name = "roomNameTB";
             this.roomNameTB.Size = new System.Drawing.Size(330, 20);
@@ -193,7 +190,6 @@
             // 
             // label1
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -213,6 +209,9 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
             this.roomTable.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.roomTable.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.roomTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.roomTable.BackgroundColor = System.Drawing.Color.Silver;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -236,10 +235,9 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.roomTable.DefaultCellStyle = dataGridViewCellStyle3;
-            this.roomTable.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.roomTable.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.roomTable.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.roomTable.Location = new System.Drawing.Point(3, 225);
+            this.roomTable.Location = new System.Drawing.Point(3, 163);
             this.roomTable.Name = "roomTable";
             this.roomTable.ReadOnly = true;
             this.roomTable.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -258,8 +256,10 @@
             dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(4);
             this.roomTable.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.roomTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.roomTable.Size = new System.Drawing.Size(870, 267);
+            this.roomTable.Size = new System.Drawing.Size(870, 329);
             this.roomTable.TabIndex = 0;
+            this.roomTable.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.roomTable_CellContentClick);
+            this.roomTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.roomTable_CellContentClick);
             // 
             // IdColumn
             // 
@@ -309,6 +309,24 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Thống kê";
             // 
+            // checkOutDatePicker
+            // 
+            this.checkOutDatePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkOutDatePicker.Location = new System.Drawing.Point(685, 125);
+            this.checkOutDatePicker.Name = "checkOutDatePicker";
+            this.checkOutDatePicker.Size = new System.Drawing.Size(183, 20);
+            this.checkOutDatePicker.TabIndex = 26;
+            this.checkOutDatePicker.Value = new System.DateTime(2024, 5, 31, 0, 0, 0, 0);
+            // 
+            // checkInDatePicker
+            // 
+            this.checkInDatePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkInDatePicker.Location = new System.Drawing.Point(685, 70);
+            this.checkInDatePicker.Name = "checkInDatePicker";
+            this.checkInDatePicker.Size = new System.Drawing.Size(183, 20);
+            this.checkInDatePicker.TabIndex = 25;
+            this.checkInDatePicker.Value = new System.DateTime(2024, 5, 31, 0, 0, 0, 0);
+            // 
             // customerIdTB
             // 
             this.customerIdTB.Enabled = false;
@@ -320,7 +338,8 @@
             // 
             // bookedRoomNameTB
             // 
-            this.bookedRoomNameTB.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.bookedRoomNameTB.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.bookedRoomNameTB.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.bookedRoomNameTB.Enabled = false;
             this.bookedRoomNameTB.HideSelection = false;
@@ -331,7 +350,8 @@
             // 
             // label9
             // 
-            this.label9.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -343,7 +363,7 @@
             // 
             // label7
             // 
-            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -355,7 +375,7 @@
             // 
             // label8
             // 
-            this.label8.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -367,6 +387,8 @@
             // 
             // phoneNumberTB
             // 
+            this.phoneNumberTB.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.phoneNumberTB.Enabled = false;
             this.phoneNumberTB.Location = new System.Drawing.Point(228, 125);
             this.phoneNumberTB.Name = "phoneNumberTB";
@@ -397,7 +419,6 @@
             // 
             // label5
             // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -409,7 +430,8 @@
             // 
             // customerNameTB
             // 
-            this.customerNameTB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.customerNameTB.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.customerNameTB.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.customerNameTB.Enabled = false;
             this.customerNameTB.HideSelection = false;
@@ -420,7 +442,6 @@
             // 
             // label6
             // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -434,12 +455,17 @@
             // 
             this.customerTable.AllowUserToAddRows = false;
             this.customerTable.AllowUserToDeleteRows = false;
+            this.customerTable.AllowUserToResizeColumns = false;
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(4);
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
             this.customerTable.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            this.customerTable.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.customerTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.customerTable.BackgroundColor = System.Drawing.Color.Silver;
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.ControlText;
@@ -465,7 +491,6 @@
             dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.customerTable.DefaultCellStyle = dataGridViewCellStyle8;
-            this.customerTable.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.customerTable.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.customerTable.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.customerTable.Location = new System.Drawing.Point(3, 225);
@@ -494,7 +519,6 @@
             // customerIdColumn
             // 
             this.customerIdColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.customerIdColumn.Frozen = true;
             this.customerIdColumn.HeaderText = "Mã Khách hàng";
             this.customerIdColumn.Name = "customerIdColumn";
             this.customerIdColumn.ReadOnly = true;
@@ -503,7 +527,6 @@
             // customerNameColumn
             // 
             this.customerNameColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.customerNameColumn.Frozen = true;
             this.customerNameColumn.HeaderText = "Tên khách hàng";
             this.customerNameColumn.Name = "customerNameColumn";
             this.customerNameColumn.ReadOnly = true;
@@ -512,54 +535,28 @@
             // 
             // phoneNumberColumn
             // 
-            this.phoneNumberColumn.Frozen = true;
             this.phoneNumberColumn.HeaderText = "Số điện thoại";
             this.phoneNumberColumn.Name = "phoneNumberColumn";
             this.phoneNumberColumn.ReadOnly = true;
             this.phoneNumberColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.phoneNumberColumn.Width = 150;
             // 
             // checkInDateColumn
             // 
-            this.checkInDateColumn.Frozen = true;
             this.checkInDateColumn.HeaderText = "Ngày đặt phòng";
             this.checkInDateColumn.Name = "checkInDateColumn";
             this.checkInDateColumn.ReadOnly = true;
-            this.checkInDateColumn.Width = 150;
             // 
             // checkOutDate
             // 
-            this.checkOutDate.Frozen = true;
             this.checkOutDate.HeaderText = "Ngày trả phòng";
             this.checkOutDate.Name = "checkOutDate";
             this.checkOutDate.ReadOnly = true;
-            this.checkOutDate.Width = 150;
             // 
             // bookedRoomColumn
             // 
-            this.bookedRoomColumn.Frozen = true;
             this.bookedRoomColumn.HeaderText = "Phòng đã đặt";
             this.bookedRoomColumn.Name = "bookedRoomColumn";
             this.bookedRoomColumn.ReadOnly = true;
-            this.bookedRoomColumn.Width = 150;
-            // 
-            // checkInDatePicker
-            // 
-            this.checkInDatePicker.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.checkInDatePicker.Location = new System.Drawing.Point(685, 70);
-            this.checkInDatePicker.Name = "checkInDatePicker";
-            this.checkInDatePicker.Size = new System.Drawing.Size(183, 20);
-            this.checkInDatePicker.TabIndex = 25;
-            this.checkInDatePicker.Value = new System.DateTime(2024, 5, 31, 0, 0, 0, 0);
-            // 
-            // checkOutDatePicker
-            // 
-            this.checkOutDatePicker.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.checkOutDatePicker.Location = new System.Drawing.Point(685, 125);
-            this.checkOutDatePicker.Name = "checkOutDatePicker";
-            this.checkOutDatePicker.Size = new System.Drawing.Size(183, 20);
-            this.checkOutDatePicker.TabIndex = 26;
-            this.checkOutDatePicker.Value = new System.DateTime(2024, 5, 31, 0, 0, 0, 0);
             // 
             // Admin
             // 
@@ -603,12 +600,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridView customerTable;
         private System.Windows.Forms.TextBox phoneNumberTB;
-        private System.Windows.Forms.DataGridViewTextBoxColumn customerIdColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn customerNameColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn phoneNumberColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn checkInDateColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn checkOutDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn bookedRoomColumn;
         private System.Windows.Forms.TextBox bookedRoomNameTB;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label7;
@@ -620,5 +611,11 @@
         private System.Windows.Forms.TextBox descriptionTB;
         private System.Windows.Forms.DateTimePicker checkOutDatePicker;
         private System.Windows.Forms.DateTimePicker checkInDatePicker;
+        private System.Windows.Forms.DataGridViewTextBoxColumn customerIdColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn customerNameColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn phoneNumberColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn checkInDateColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn checkOutDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bookedRoomColumn;
     }
 }

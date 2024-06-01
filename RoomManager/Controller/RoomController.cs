@@ -47,6 +47,36 @@ namespace RoomManager.Controller
 
             return rooms.ToArray();
         }
+        //TuHa
+        public string[] GetAllRoomDescriptions()
+        {
+            List<string> descriptions = new List<string>();
+
+            try
+            {
+                using (SqlConnection conn = getConnection())
+                {
+                    conn.Open();
+                    string sql = "SELECT descriptions FROM rooms;";
+                    SqlCommand command = new SqlCommand(sql, conn);
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        string description = reader.GetString(0);
+                        descriptions.Add(description);
+                    }
+                    conn.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi: " + ex.Message);
+            }
+
+            return descriptions.ToArray();
+        }
+        //TuHa
         public int AddNewRoom(string name, string descriptions)
         {
             try
@@ -84,7 +114,7 @@ namespace RoomManager.Controller
                 using (SqlConnection conn = getConnection())
                 {
                     conn.Open();
-                    string sql = "SELECT * FROM rooms where name  LIKE '%"+name+"%' or descriptions LIKE '%"+name+"%';";
+                    string sql = "SELECT * FROM rooms where name  LIKE N'%"+name+"%' or descriptions LIKE N'%"+name+"%';";
                     SqlCommand command = new SqlCommand(sql, conn);
                     SqlDataReader reader = command.ExecuteReader();
 

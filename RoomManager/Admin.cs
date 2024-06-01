@@ -170,5 +170,13 @@ namespace RoomManager
         {
 
         }
+
+        private void roomTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //set control text
+            DataGridViewRow selectedRow = roomTable.SelectedRows[0];
+            roomNameTB.Text = selectedRow.Cells[1].Value.ToString();
+            descriptionTB.Text = selectedRow.Cells[2].Value.ToString();
+        }
     }
 }

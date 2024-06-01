@@ -9,13 +9,14 @@ namespace RoomManager
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        static void Main()                                
         {
             DB db = new DB();
             db.createTables();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new DangNhap_DangKy());
+            //Application.Run(new Dat_TraPhong());
         }
     }
 }

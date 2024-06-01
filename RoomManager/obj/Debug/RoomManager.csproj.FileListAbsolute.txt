@@ -8,7 +8,6 @@ D:\Code\C#\winform-room-manager\RoomManager\obj\Debug\RoomManager.csproj.Generat
 D:\Code\C#\winform-room-manager\RoomManager\obj\Debug\RoomManager.csproj.CoreCompileInputs.cache
 D:\Code\C#\winform-room-manager\RoomManager\obj\Debug\RoomManager.exe
 D:\Code\C#\winform-room-manager\RoomManager\obj\Debug\RoomManager.pdb
-D:\Code\C#\winform-room-manager\RoomManager\obj\Debug\RoomManager.QuanlyPhong_Khach.resources
 C:\Users\ADMIN\source\repos\RoomManager\RoomManager\bin\Debug\RoomManager.exe
 C:\Users\ADMIN\source\repos\RoomManager\RoomManager\bin\Debug\RoomManager.exe.config
 C:\Users\ADMIN\source\repos\RoomManager\RoomManager\obj\Debug\RoomManager.csproj.AssemblyReference.cache
@@ -20,3 +19,6 @@ C:\Users\ADMIN\source\repos\RoomManager\RoomManager\obj\Debug\RoomManager.csproj
 C:\Users\ADMIN\source\repos\RoomManager\RoomManager\obj\Debug\RoomManager.exe
 C:\Users\ADMIN\source\repos\RoomManager\RoomManager\obj\Debug\RoomManager.pdb
 C:\Users\ADMIN\source\repos\RoomManager\RoomManager\bin\Debug\RoomManager.pdb
+D:\Code\C#\winform-room-manager\RoomManager\obj\Debug\RoomManager.Admin.resources
+D:\Code\C#\winform-room-manager\RoomManager\obj\Debug\RoomManager.Dat_TraPhong.resources
+C:\Users\ADMIN\source\repos\RoomManager\RoomManager\obj\Debug\RoomManager.Dat_TraPhong.resources
